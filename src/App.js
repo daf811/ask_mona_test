@@ -10,7 +10,7 @@ class App extends Component {
 
     this.state = {
      taskName: '',
-     taskDone:'false',
+     taskDone: false,
      tasks: []
     };
 
@@ -73,7 +73,10 @@ removeTask() {
         <input type="text" value={this.state.taskName} onChange={this.handleChange.bind(this)} />
           <button type="submit"> + TASK </button>
           </form>
-      
+          {/* <label>
+            <input type="checkbox" value= {this.taskDone} onChange = {(e) => this.setState({taskDone: !taskDone.value})}/>
+          Checkbox
+          </label> */}
       <div className="tasksgo">
       {this.state.tasks.map(task => <Task name={task.name} remove={this.removeTask} key={task.id} id={task.id} />)}
       

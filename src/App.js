@@ -2,18 +2,28 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
-import Task from './Task'
+import Task from './Task';
+
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      taskName: '',
-      taskDone:'false',
-      tasks: []
+     taskName: '',
+     taskDone:'false',
+     tasks: []
     };
 
     this.removeTask = this.removeTask.bind(this);
+  }
+
+
+  updateList() {
+    axios
+      .get('https://todo-test-mona.herokuapp.com/tasks')
+      .then(tasks => this.setState({
+        tasks: tasks.data
+      }));
   }
 
 componentDidMount(){

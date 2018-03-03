@@ -6,7 +6,8 @@ class Task extends Component {
     
     handleClick(){
       console.log(this.props.id);
-      axios.delete('https://todo-test-mona.herokuapp.com/tasks',{ 
+      axios.delete('https://todo-test-mona.herokuapp.com/tasks/'+ this.props.id, 
+      { 
         id : this.props.id 
       })
       .then(result => {
@@ -18,7 +19,7 @@ class Task extends Component {
     render() {
       return (
         <div className="Task">
-          { this.props.name }
+          {this.props.name}
           <button className="remove" onClick={this.handleClick.bind(this)}>X</button>
         </div>
       );
